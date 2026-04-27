@@ -6,6 +6,7 @@ import os
 import re
 from urllib.parse import urljoin
 import tempfile
+import pypandoc
 
 st.set_page_config(
     page_title="Excel Analyzer",
@@ -72,8 +73,6 @@ def main():
                         tmp_path = tmp_file.name
 
                     try:
-                        import pypandoc
-                        pypandoc.download_pandoc()
                         pypandoc.convert_text(
                             markdown_report,
                             to='docx',
